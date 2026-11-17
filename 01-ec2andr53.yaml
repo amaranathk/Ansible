@@ -34,7 +34,7 @@
   - name: r53
     amazon.aws.route53:
       state: present
-      zone: "{{ ZONE_ID }}"
+      zone: "{{ DOMAIN_NAME }}"
       record: "{{ item.item }}.{{ DOMAIN_NAME }}"
       type: A
       ttl: 1
