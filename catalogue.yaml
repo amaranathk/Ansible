@@ -15,17 +15,17 @@
   
   - name: check if user exists or not
     ansible.builtin.command: id roboshop
-    # register: output_user
+    register: output_user
   
-  # - name: print the output
-  #   ansible.builtin.debug:
-  #     msg: "{{ output_user }}"
+  - name: print the output
+    ansible.builtin.debug:
+      msg: "{{ output_user }}"
 
-  - name: create user
-    ansible.builtin.user:
-      name: roboshop
-      comment: system user
-      shell: "/sbin/nologin"
-      home: "/app"
+  # - name: create user
+  #   ansible.builtin.user:
+  #     name: roboshop
+  #     comment: system user
+  #     shell: "/sbin/nologin"
+  #     home: "/app"
 
   
