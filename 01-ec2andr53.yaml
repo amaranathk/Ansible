@@ -6,8 +6,8 @@
     SG_ID: "sg-01d559ae05d4950f8"
     ZONE_ID: "Z02447381M2WX5WD68DBZ"
     DOMAIN_NAME: "amaranath.fun"
-    instances:
-      - mongodb
+    # instances:
+    #   - mongodb
 
   tasks:
   - name: Create Instance
