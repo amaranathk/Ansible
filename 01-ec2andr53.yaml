@@ -4,6 +4,8 @@
   vars:
     AMI_ID: "ami-0055977a6e828a4f4"
     SG_ID: "sg-01d559ae05d4950f8"
+    ZONE_ID: "Z02447381M2WX5WD68DBZ"
+    DOMAIN_NAME: "amaranath.fun"
     instances:
       - mongodb
 
