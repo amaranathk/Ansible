@@ -1,0 +1,22 @@
+- name: setup catalogue
+  hosts: catalogue
+  become: yes
+  tasks:
+  - name: disable default nodejs
+    ansible.builtin.command: dnf module disable nodejs -y
+
+  - name: enable nodejs:20
+    ansible.builtin.command: dnf module enable nodejs:20 -y
+  
+  - name: Install node js
+    ansbile.builtin.package:
+      name: nodejs
+      state: present
+  
+  - name: check if user exists or not
+    ansible.builtin.command: id roboshop
+    register: output_user
+  
+  - name: print the output
+    ansible.builtin.debug:
+      msg: "{{ output_user }}"

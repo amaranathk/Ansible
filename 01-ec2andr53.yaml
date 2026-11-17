@@ -44,3 +44,17 @@
     loop: "{{ ec2_output.results }}"
 
 
+  - name: r53
+    amazon.aws.route53:
+      state: present
+      zone: "{{ DOMAIN_NAME }}"
+      record: "{{ DOMAIN_NAME }}"
+      type: A
+      ttl: 1
+      value: "{{ item.instances[0].private_ip_address }}"
+      overwrite: true
+    when: item.item == "frontend"
+    loop: "{{ ec2_output.results }}"
+
+
+
