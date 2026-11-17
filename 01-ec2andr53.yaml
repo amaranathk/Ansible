@@ -17,5 +17,19 @@
       tags:
         Name: "{{ item }}"
     loop: "{{ instances }}"
+    register: "ec2_output"
+
+
+  - name: take the output
+    ansible.builtin.debug:
+      msg: "{{ ec2_output }}"
+  
+  # - name: r53
+  #   amazon.aws.route53:
+  #     state: present
+  #     zone: "{{ ZONE_ID }}"
+  #     record: "{{ item }}.{{ DOMAIN_NAME }}"
+  #     type: A
+  #     ttl: 1
 
 
