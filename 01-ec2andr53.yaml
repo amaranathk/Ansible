@@ -26,7 +26,8 @@
 
   - name: print public ip 
     ansible.builtin.debug:
-      msg: "{{ ec2_output.results.instances[0].public_ip_address }}"
+      msg: "{{ item.instances[0].public_ip_address }}"
+    loop: "{{ ec2_output.results }}"
   
   # - name: r53
   #   amazon.aws.route53:
