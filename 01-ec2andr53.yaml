@@ -20,21 +20,24 @@
     register: "ec2_output"
 
 
-  - name: take the output
-    ansible.builtin.debug:
-      msg: "{{ ec2_output }}"
+  # - name: take the output
+  #   ansible.builtin.debug:
+  #     msg: "{{ ec2_output }}"
 
-  - name: print public ip 
-    ansible.builtin.debug:
-      msg: "{{ item.instances[0].public_ip_address }}"
-    loop: "{{ ec2_output.results }}"
+  # - name: print public ip 
+  #   ansible.builtin.debug:
+  #     msg: "{{ item.instances[0].public_ip_address }}"
+  #   loop: "{{ ec2_output.results }}"
   
-  # - name: r53
-  #   amazon.aws.route53:
-  #     state: present
-  #     zone: "{{ ZONE_ID }}"
-  #     record: "{{ item }}.{{ DOMAIN_NAME }}"
-  #     type: A
-  #     ttl: 1
+  - name: r53
+    amazon.aws.route53:
+      state: present
+      zone: "{{ ZONE_ID }}"
+      record: "{{ item.item }}.{{ DOMAIN_NAME }}"
+      type: A
+      ttl: 1
+      value: "{{ item.instances[0].private_ip_address }}"
+      overwrite: true
+    loop: "{{ ec2_output.results }}"
 
 
