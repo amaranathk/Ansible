@@ -1,0 +1,9 @@
+MONGODB_HOST: mongodb.amaranath.fun
+REDIS_HOST: redis.amaranath.fun
+CATALOGUE_HOST: catalogue.amaranath.fun
+MYSQL_HOST: mysql.amaranath.fun
+CART_HOST: cart.amaranath.fun
+RABBITMQ_HOST: rabbitmq.amaranath.fun
+USER_HOST: user.amaranath.fun
+SHIPPING_HOST: shipping.amaranath.fun
+PAYMENT_HOST: payment.amaranath.fun
